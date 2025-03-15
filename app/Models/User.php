@@ -6,6 +6,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Client;
+use App\Models\Lawyer;
 
 class User extends Authenticatable
 {
@@ -22,7 +26,16 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    public function Client(): HasOne
+    {
+        return $this->hasOne(Client::class );
+    }
+   
+    // Relationship with Lawyer
+    public function lawyer(): HasOne
+    {
+        return $this->hasOne(Lawyer::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
