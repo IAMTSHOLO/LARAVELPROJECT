@@ -11,6 +11,15 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = ['User_ID']; // Only storing user reference
+  
+    
+
+    protected $table = 'Clients'; // Assuming your table name is Clients
+
+    protected $primaryKey = 'Client_ID';
+
+    public $timestamps = false;
+
 
     // Relationship with User
     public function user(): BelongsTo

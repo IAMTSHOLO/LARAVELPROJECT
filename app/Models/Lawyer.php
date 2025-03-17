@@ -9,7 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Lawyer extends Model
 {
     use HasFactory;
+    
+    protected $table = 'LAWYERS'; // Assuming your table name is LAWYERS
 
+    protected $primaryKey = 'Lawyer_ID';
+
+    public $timestamps = false;
+    
     protected $fillable = [
         'user_id',
         'specialization',

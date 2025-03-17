@@ -41,7 +41,7 @@ class AuthController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Client registration failed. Please try again.'], 500);
         }
-
+         
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
